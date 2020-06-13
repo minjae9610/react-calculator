@@ -39,7 +39,8 @@ const evalFunc = function(string) {
 class Calculator extends React.Component {
   // TODO: history 추가
   state = {
-    displayValue: ""
+    displayValue: "",
+    history: []
   };
 
   onClickButton = key => {
@@ -97,9 +98,10 @@ class Calculator extends React.Component {
           displayValue = evalFunc(displayValue);
         }
         this.setState({ displayValue });
+        this.state.history.unshift({equation:displayValue, answer:displayValue})
       },
       ".": () => {
-        var splitValue = displayValue.split("+", -1).reverse()[0];
+        let splitValue = displayValue.split("+", -1).reverse()[0];
         splitValue = splitValue.split("-", -1).reverse()[0];
         splitValue = splitValue.split("×", -1).reverse()[0];
         splitValue = splitValue.split("÷", -1).reverse()[0];
@@ -172,7 +174,9 @@ class Calculator extends React.Component {
         </Panel>
         <History>
           <Box>
-            {/* TODO: History componet를 이용해 map 함수와 Box styled div를 이용해 history 표시 */}
+            {/* TODO: History componet를 이용해 map 함수와 Box styled div를 이용해 history 표시 */
+              this.state.history
+            }
           </Box>
         </History>
 
