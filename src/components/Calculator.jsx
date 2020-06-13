@@ -173,11 +173,9 @@ class Calculator extends React.Component {
           </ButtonGroup>
         </Panel>
         <History>
-          <Box>
-            {/* TODO: History componet를 이용해 map 함수와 Box styled div를 이용해 history 표시 */
-              this.state.history.map(equation => equation + "\n= " + evalFunc(equation))
-            }
-          </Box>
+          {/* TODO: History componet를 이용해 map 함수와 Box styled div를 이용해 history 표시 */
+            this.state.history.map(equation => <Box>{equation + "<br/>= " + evalFunc(equation)}</Box>)
+          }
         </History>
 
       </Container>
