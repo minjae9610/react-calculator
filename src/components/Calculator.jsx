@@ -89,7 +89,11 @@ class Calculator extends React.Component {
         this.setState({ displayValue });
       },
       ".": () => {
-        if (lastChar !== "" && !displayValue.split("+").reverse()[0].split("-").reverse()[0].split("×").reverse()[0].split("÷").reverse()[0].includes(".")) {
+        var splitValue = displayValue.split("+", -1).reverse()[0];
+        splitValue = splitValue.split("-", -1).reverse()[0];
+        splitValue = splitValue.split("×", -1).reverse()[0];
+        splitValue = splitValue.split("÷", -1).reverse()[0];
+        if (lastChar !== "" && splitValue !== "" && !splitValue.includes(".")) {
           this.setState({ displayValue: displayValue + "." });
         }
       },
