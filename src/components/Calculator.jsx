@@ -88,7 +88,11 @@ class Calculator extends React.Component {
         }
         this.setState({ displayValue });
       },
-      ".": () => {},
+      ".": () => {
+        if (lastChar !== "" && !displayValue.split("+").reverse()[0].split("-").reverse()[0].split("×").reverse()[0].split("÷").reverse()[0].includes(".")) {
+          this.setState({ displayValue: displayValue + "." });
+        }
+      },
       "0": () => {
         if (Number(displayValue) !== 0) {
           displayValue += "0";
