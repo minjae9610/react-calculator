@@ -170,11 +170,11 @@ class Calculator extends React.Component {
             </Button>
           </ButtonGroup>
         </Panel>
-        {/* TODO: History componet를 이용해 map 함수와 Box styled div를 이용해 history 표시 */
         <History>
-
+          <Box>
+            {/* TODO: History componet를 이용해 map 함수와 Box styled div를 이용해 history 표시 */}
+          </Box>
         </History>
-        }
 
       </Container>
     );
