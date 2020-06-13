@@ -57,7 +57,16 @@ class Calculator extends React.Component {
         this.setState({ displayValue });
       },
       // TODO: 제곱근 구현
-      "√": () => {},
+      "√": () => {
+        if (lastChar !== "") {
+          if (operatorKeys.includes(lastChar)){
+            displayValue = displayValue.substr(0, displayValue.length - 1);
+          }
+          displayValue = evalFunc(displayValue);
+          displayValue = Math.sqrt(displayValue)
+        }
+        this.setState({ displayValue });
+      },
       // TODO: 사칙연산 구현
       "÷": () => {
         if (lastChar !== "" && !operatorKeys.includes(lastChar)) {
