@@ -95,10 +95,10 @@ class Calculator extends React.Component {
         if (lastChar !== "" && operatorKeys.includes(lastChar)) {
           displayValue = displayValue.substr(0, displayValue.length - 1);
         } else if (lastChar !== "") {
+          this.state.history.unshift(displayValue)
           displayValue = evalFunc(displayValue);
         }
         this.setState({ displayValue });
-        this.state.history.unshift({equation:displayValue, answer:displayValue})
       },
       ".": () => {
         let splitValue = displayValue.split("+", -1).reverse()[0];
