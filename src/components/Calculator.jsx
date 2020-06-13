@@ -2,6 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 
 import Panel from "./Panel";
+import History from "./History";
 import Display from "./Display";
 import ButtonGroup from "./ButtonGroup";
 import Button from "./Button";
@@ -29,9 +30,9 @@ const Box = styled.div`
 `;
 
 const evalFunc = function(string) {
-  // eslint-disable-next-line no-new-func
   string = string.replace(/×/g, "*")
   string = string.replace(/÷/g, "/")
+  // eslint-disable-next-line no-new-func
   return new Function("return (" + string + ")")();
 };
 
@@ -169,7 +170,11 @@ class Calculator extends React.Component {
             </Button>
           </ButtonGroup>
         </Panel>
-        {/* TODO: History componet를 이용해 map 함수와 Box styled div를 이용해 history 표시 */}
+        {/* TODO: History componet를 이용해 map 함수와 Box styled div를 이용해 history 표시 */
+        <History>
+
+        </History>
+        }
 
       </Container>
     );
