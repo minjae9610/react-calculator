@@ -30,6 +30,7 @@ const Box = styled.div`
 
 const evalFunc = function(string) {
   // eslint-disable-next-line no-new-func
+  string = string.replace("×", "*")
   return new Function("return (" + string + ")")();
 };
 
